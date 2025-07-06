@@ -1,0 +1,74 @@
+
+# Task 7: Creating and Using Views
+
+## 🎯 Objective:
+To learn how to create and use SQL Views for abstraction and data security.
+
+## 🛠 Tools Used:
+- DB Browser for SQLite / MySQL Workbench
+
+## 📄 What This Task Includes:
+1. Creation of a view using a SELECT query
+2. Usage of the view in SQL queries
+3. Updating data using the view (if allowed)
+4. Dropping the view
+5. Interview Questions and Answers
+
+## 🔢 SQL View Example:
+
+### Creating a View
+```sql
+CREATE VIEW HighSalaryEmployees AS
+SELECT employee_id, name, salary
+FROM employees
+WHERE salary > 50000;
+```
+
+### Using the View
+```sql
+SELECT * FROM HighSalaryEmployees;
+```
+
+### Updating Through the View (if updatable)
+```sql
+UPDATE HighSalaryEmployees
+SET salary = 60000
+WHERE employee_id = 101;
+```
+
+### Dropping the View
+```sql
+DROP VIEW HighSalaryEmployees;
+```
+
+## 🧠 Interview Questions and Answers
+
+**1. What is a view?**  
+A view is a virtual table based on a SELECT query. It does not store data physically.
+
+**2. Can we update data through a view?**  
+Yes, if it's based on a single table and doesn't include GROUP BY, DISTINCT, etc.
+
+**3. What is a materialized view?**  
+A materialized view stores query results physically and can be refreshed.
+
+**4. Difference between view and table?**  
+A table stores data physically; a view is virtual and dynamic.
+
+**5. How to drop a view?**  
+Using: `DROP VIEW view_name;`
+
+**6. Why use views?**  
+For abstraction, reuse of logic, security, and simplifying complex queries.
+
+**7. Can we create indexed views?**  
+Yes, in some DBMS like SQL Server. They're stored physically and optimized.
+
+**8. How to secure data using views?**  
+By creating views that expose only certain columns/rows.
+
+**9. What are limitations of views?**  
+Performance, limited update capability, and dependency on base tables.
+
+**10. How does WITH CHECK OPTION work?**  
+It ensures inserted/updated rows satisfy the view's WHERE clause.
